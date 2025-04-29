@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Your Special Birthday Wish</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+      overflow: hidden;
+      background: linear-gradient(135deg, #ff9a9e, #fad0c4, #70f5ff, #5ffff7);
+      background-size: 400% 400%;
+      animation: gradientBG 15s ease infinite;
+      font-family: 'Georgia', serif;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      color: #fff;
+    }
+
+    @keyframes gradientBG {
+      0% {background-position: 0% 50%;}
+      50% {background-position: 100% 50%;}
+      100% {background-position: 0% 50%;}
+    }
+
+    h1 {
+      font-size: 4em;
+      margin: 15px 30px;
+      background: linear-gradient(135deg, #5630ff, #701dff, #b915ff, #ff97fc);
+      background-size: 400% 400%;
+      animation: gradientText 10s ease infinite;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      font-family: Segoe Print;
+    }
+
+    p {
+        font-size: 1.5em;
+      margin: 15px 30px;
+      background: linear-gradient(135deg, #5630ff, #701dff, #b915ff, #ff97fc);
+      background-size: 400% 400%;
+      animation: gradientText 10s ease infinite;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      font-family: Segoe Print;
+    }
+    .button {
+      margin-top: 25px;
+      padding: 14px 30px;
+      font-size: 1.2em;
+      background: #ff6f91;
+      border: none;
+      border-radius: 50px;
+      color: white;
+      cursor: pointer;
+      box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+      transition: all 0.5s ease;
+      
+    }
+    .button:hover {
+      background: #ff1048;
+      transform: translateY(-3px);
+      box-shadow: 0 12px 20px rgba(0, 0, 0, 0.3);
+    }
+
+    /* Confetti */
+    .confetti {
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      background-color: #ffffff;
+      top: -10px;
+      animation: fall linear infinite;
+    }
+
+    @keyframes fall {
+      0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(100vh) rotate(360deg);
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Here's Your Birthday Wish<br>Only For You</h1>
+  <p>Sneha, we met on 17 march, it's the most beautiful day of my life.<br>
+    Thank you so much for being the most beautiful, amazing and supportive person of my life.<br>
+    In every universe I'll still find you!<br>
+    You will always remain in my heart Sneha!<br>
+    In my eyes you are the best and there is no comparison that can be compared with you!<br>
+    You have everything that makes a person the best!<br>
+    Your eyes are the most beautiful thing I have ever seen, your heart is so soft, you have deen, Allah Loves you Sneha!<br>
+    Thank you so much!</p>
+  <button class="button" onclick="location.href='wish.html'">Next Page</button>
+  <!-- Birthday Music -->
+  <audio autoplay loop>
+    <source src="https://cdn.pixabay.com/download/audio/2025/03/16/audio_c2c127a814.mp3?filename=happy-birthday-314197.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
+
+  <script>
+    // Confetti Creation
+    for (let i = 0; i < 150; i++) {
+      let confetti = document.createElement('div');
+      confetti.classList.add('confetti');
+      confetti.style.left = Math.random() * 100 + 'vw';
+      confetti.style.animationDuration = (Math.random() * 3 + 2) + 's';
+      confetti.style.backgroundColor = randomColor();
+      document.body.appendChild(confetti);
+    }
+
+    function randomColor() {
+      const colors = ['#ff6b6b', '#feca57', '#48dbfb', '#1dd1a1', '#ff9ff3', '#00d2d3', '#f368e0'];
+      return colors[Math.floor(Math.random() * colors.length)];
+    }
+  </script>
+
+</body>
+</html>
