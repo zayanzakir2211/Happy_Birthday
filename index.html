@@ -3,11 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <!-- Title Image at the top -->
-<head>
-    <!-- Add this line in the <head> section of your HTML file -->
-    <link rel="icon" href="https://zayanzakir2211.github.io/Happy_Birthday/title-image.ico" type="image/x-icon">
-    <title>Happy Birthday!</title>
+  <title>Happy Birthday!</title>
   <style>
     body {
       margin: 0;
@@ -35,13 +31,27 @@
     h1 {
       font-size: 3.5em;
       margin: 0;
-      text-shadow: 2px 2px 5px #000;
+      background: linear-gradient(135deg, #21cfff, #701dff, #b915ff, #ff97fc);
+      background-size: 400% 400%;
+      animation: gradientText 10s ease infinite;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
     }
 
-    p {
+    .gradient-text {
       font-size: 1.5em;
       margin: 15px 30px;
-      text-shadow: 1px 1px 3px #000;
+      background: linear-gradient(135deg, #21cfff, #701dff, #b915ff, #ff97fc);
+      background-size: 400% 400%;
+      animation: gradientText 10s ease infinite;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    @keyframes gradientText {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
     }
 
     .button {
@@ -54,11 +64,12 @@
       color: white;
       cursor: pointer;
       box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
-      transition: all 0.3s ease;
+      transition: all 0.5s ease;
+      
     }
 
     .button:hover {
-      background: #ff3c68;
+      background: #ff1048;
       transform: translateY(-3px);
       box-shadow: 0 12px 20px rgba(0, 0, 0, 0.3);
     }
@@ -101,14 +112,10 @@
 </head>
 <body>
 
-  <h1>🎉 Happy Birthday! 🎉</h1>
-  <p>May your day be filled with sunshine, smiles, laughter, and love.<br>You are truly one of a kind!</p>
+  <h1>Happy Birthday!</h1>
+  <p class="gradient-text">You're more special than you know and today,<br> you deserve all the happiness in the world!</p>
 
-  <button class="button" onclick="showMessage()">Tap for a Special Wish 💖</button>
-
-  <div class="hidden-message" id="hiddenMessage">
-    <p>🌟 You make the world brighter just by being in it. 🌟<br>Never stop smiling!</p>
-  </div>
+  <button class="button" onclick="location.href='wish.html'">Tap for a Special Wish 💖</button>
 
   <!-- Birthday Music -->
   <audio id="birthdayMusic" loop>
@@ -119,8 +126,6 @@
   <script>
     function showMessage() {
       document.getElementById('hiddenMessage').style.display = 'block';
-
-      // Play music on button click
       var music = document.getElementById('birthdayMusic');
       music.play();
     }
